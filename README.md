@@ -1,13 +1,9 @@
-
-# flutter_app
-
-A new Flutter application.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
-
 # flutter_demo
-一个flutterdemo
+一个flutterdemo 目前还没有在ios 运行，不过问题应该不大
+
+# flutter 环境搭建 以及android studio插件安装
+参考博客 https://blog.csdn.net/brightshadow11111/article/details/80352752
+
+# flutter 官网第一个app
+参考博客 https://blog.csdn.net/codingandroid/article/details/80354403
 
