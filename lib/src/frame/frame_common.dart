@@ -13,7 +13,7 @@ class ListViewPageState extends State<ListViewPage> {
     super.initState();
     list.add('官网 第一个小页面');
     list.add('官网 扁平化页面');
-    list.add('dialogs');
+    list.add('苹果dialogs样式库');
 
     list.add('Basics');
     list.add('Material Components');
@@ -54,6 +54,7 @@ class ListViewPageState extends State<ListViewPage> {
           }else if (index == 1) {
             Navigator.pushNamed(context,'/demos/demo2');
           }else if (index == 2) {
+            Navigator.pushNamed(context,'/refresh/beautifulldialog');
           }else if (index == 3) {
           }else if (index == 6) {
             Navigator.pushNamed(context, '/ui/textstyle');

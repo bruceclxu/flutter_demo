@@ -14,6 +14,8 @@ import './src/demos/futher_demo.dart';
 import './src/refresh/refreshIndicator_demo.dart';
 import './src/refresh/load_more_demo.dart';
 import './src/ui/TextDemo.dart';
+import './src/ui/beautiful_dialogs.dart';
+
 
 void main() => runApp(new MyApp());
 
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/ui/textstyle': (_) => new TextStylePage(),
         '/refresh/pullrefresh': (_) => new RefreshIndicatorDemo(),
         '/refresh/loadmore': (_) => new LoadMorePage(),
-
+        '/refresh/beautifulldialog': (_) => new CupertinoDialogDemo(),
 
       },
     );
