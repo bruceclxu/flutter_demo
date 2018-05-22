@@ -11,7 +11,6 @@ class RefreshIndicatorDemo extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<RefreshIndicatorDemo> {
-  // 这个key用来在不是手动下拉，而是点击某个button或其它操作时，代码直接触发下拉刷新
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
       new GlobalKey<RefreshIndicatorState>();
 

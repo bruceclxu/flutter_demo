@@ -13,6 +13,8 @@ class ListViewPageState extends State<NativeFrame> {
     super.initState();
     list.add('路由');
     list.add('手势');
+    list.add('list下拉刷新');
+    list.add('list上拉加載');
     list.add('动画');
     list.add('本地存储');
     list.add('待更新');
@@ -43,11 +45,12 @@ class ListViewPageState extends State<NativeFrame> {
           Navigator.pushNamed(context, '/router/gesture');
         }
         else if (index == 2) {
-          Navigator.pushNamed(context, '/ui/textstyle');
-          print("2");
+          Navigator.pushNamed(context, '/refresh/pullrefresh');
+        }else if(index == 3){
+          Navigator.pushNamed(context, '/refresh/loadmore');
         }
         else {
-          print("3");
+
         }
       },
       child: new Container(

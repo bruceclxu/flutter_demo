@@ -7,3 +7,6 @@
 # flutter 官网第一个app
 参考博客 https://blog.csdn.net/codingandroid/article/details/80354403
 
+# flutter google 官方客户端，发现的有点晚，还没来得及看
+github地址:https://github.com/yubo725/FlutterOSC
+

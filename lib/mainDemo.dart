@@ -11,6 +11,8 @@ import './src/router/second_page.dart';
 import './src/gestuere/gesture_demo.dart';
 import './src/demos/first_demo.dart';
 import './src/demos/futher_demo.dart';
+import './src/refresh/refreshIndicator_demo.dart';
+import './src/refresh/load_more_demo.dart';
 import './src/ui/TextDemo.dart';
 
 void main() => runApp(new MyApp());
@@ -34,6 +36,9 @@ class MyApp extends StatelessWidget {
         '/router/second': (_) => new SecondPage(),
         '/router/gesture': (_) => new GestureDemo(),
         '/ui/textstyle': (_) => new TextStylePage(),
+        '/refresh/pullrefresh': (_) => new RefreshIndicatorDemo(),
+        '/refresh/loadmore': (_) => new LoadMorePage(),
+
 
       },
     );
