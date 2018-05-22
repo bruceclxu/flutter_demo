@@ -48,13 +48,10 @@ class ListViewPageState extends State<NativeFrame> {
           Navigator.pushNamed(context, '/refresh/pullrefresh');
         }else if(index == 3){
           Navigator.pushNamed(context, '/refresh/loadmore');
-        }else{
+        }
+        else {
 
         }
-//        else if(index == 5){
-//          print('/sp/sptest');
-//          Navigator.pushNamed(context, '/sp/sptest');
-//        }
       },
       child: new Container(
         height: 50.0,
