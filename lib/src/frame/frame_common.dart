@@ -11,6 +11,8 @@ class ListViewPageState extends State<ListViewPage> {
   @override
   void initState() {
     super.initState();
+    list.add('官网 第一个小页面');
+    list.add('官网 扁平化页面');
     list.add('dialogs');
 
     list.add('Basics');
@@ -48,10 +50,12 @@ class ListViewPageState extends State<ListViewPage> {
     return new GestureDetector(
         onTap: () {
           if (index == 0) {
+            Navigator.pushNamed(context, '/demos/demo1');
           }else if (index == 1) {
+            Navigator.pushNamed(context,'/demos/demo2');
           }else if (index == 2) {
           }else if (index == 3) {
-          }else if (index == 4) {
+          }else if (index == 6) {
             Navigator.pushNamed(context, '/ui/textstyle');
           }
           else {
@@ -82,29 +86,5 @@ class ListViewPageState extends State<ListViewPage> {
         ));
 
 
-
-//    return (new Container(
-//      height: 50.0,
-//      color: Colors.white,
-//      child: new Column(
-//        crossAxisAlignment: CrossAxisAlignment.start,
-//        children: <Widget>[
-//          new Expanded(
-//            child: Row(
-//              crossAxisAlignment: CrossAxisAlignment.center,
-//              children: <Widget>[
-//                Container(
-//                  margin: EdgeInsets.only(left: 15.0),
-//                  child: new Text('${this.list[index]}',style: new TextStyle(fontWeight: FontWeight.w300,fontSize: 22.0)),
-//                ),
-//              ],
-//            ),
-//          ),
-//          new Divider(
-//            height: 0.5,
-//          )
-//        ],
-//      ),
-//    ));
   }
 }

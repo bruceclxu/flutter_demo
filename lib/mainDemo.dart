@@ -9,6 +9,8 @@ import './src/frame/frame_network.dart';
 import './src/router/router_home_page.dart';
 import './src/router/second_page.dart';
 import './src/gestuere/gesture_demo.dart';
+import './src/demos/first_demo.dart';
+import './src/demos/futher_demo.dart';
 import './src/ui/TextDemo.dart';
 
 void main() => runApp(new MyApp());
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
       home: new BottomTabBarPage(),// home相当于 /
       routes: <String, WidgetBuilder> {
         //静态路由，不能传参数
+        '/demos/demo1': (_) =>RandomWords(),
+        '/demos/demo2': (_) =>new FutherDemo(),
         '/router/home': (_) => new RouterHomePage(),
         '/router/second': (_) => new SecondPage(),
         '/router/gesture': (_) => new GestureDemo(),
