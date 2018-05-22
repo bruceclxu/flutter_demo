@@ -72,6 +72,13 @@
             </list>
           </value>
         </entry>
+        <entry key="shared_preferences">
+          <value>
+            <list>
+              <option value="D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.1.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="sky_engine">
           <value>
             <list>
@@ -119,6 +126,7 @@
       <root url="file://D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/http_parser-3.1.2/lib" />
       <root url="file://D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/meta-1.1.2/lib" />
       <root url="file://D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/path-1.5.1/lib" />
+      <root url="file://D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.1.1/lib" />
       <root url="file://D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.4.0/lib" />
       <root url="file://D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/string_scanner-1.0.2/lib" />
       <root url="file://D:/ProgramFiles/Android/flutter/.pub-cache/hosted/pub.flutter-io.cn/typed_data-1.1.5/lib" />
