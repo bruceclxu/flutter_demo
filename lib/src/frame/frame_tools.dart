@@ -15,6 +15,7 @@ class ListViewPageState extends State<NativeFrame> {
     list.add('手势');
     list.add('list下拉刷新');
     list.add('list上拉加載');
+    list.add('生命周期');
     list.add('动画');
     list.add('本地存储');
     list.add('待更新');
@@ -50,6 +51,8 @@ class ListViewPageState extends State<NativeFrame> {
           Navigator.pushNamed(context, '/refresh/loadmore');
         }else if(index == 4){
           Navigator.pushNamed(context, '/platform/battery');
+        }else if(index == 5){
+          Navigator.pushNamed(context, '/lifecycle/lifcycle');
         }
         else {
 

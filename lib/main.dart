@@ -16,6 +16,7 @@ import './src/refresh/load_more_demo.dart';
 import './src/ui/TextDemo.dart';
 import './src/ui/beautiful_dialogs.dart';
 import './src/nativedemos/native_battery_demos.dart';
+import './src/lifecycles/lifecycle.dart';
 
 void main() => runApp(new MyApp());
 
@@ -42,7 +43,9 @@ class MyApp extends StatelessWidget {
         '/refresh/loadmore': (_) => new LoadMorePage(),
         '/refresh/beautifulldialog': (_) => new CupertinoDialogDemo(),
         '/platform/battery': (_) => new PlatformChannel(),
-      },
+        '/lifecycle/lifcycle': (_) => new LifecycleWatcher(),
+
+    },
     );
   }
 }
