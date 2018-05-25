@@ -1,160 +1,109 @@
-// Copyright 2017 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// Step 4: Create an infinite scrolling lazily loaded list
 
 import 'package:flutter/material.dart';
-// Uncomment lines 7 and 10 to view the visual layout at runtime.
-//import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
+import './src/frame/frame_common.dart';
+import './src/frame/frame_tools.dart';
+import './src/frame/frame_network.dart';
 
-void main() {
-  //debugPaintSizeEnabled = true;
-  runApp(new MyApp());
-}
+//需要跳转页面，用于配置路由
+import './src/router/router_home_page.dart';
+import './src/router/second_page.dart';
+import './src/gestuere/gesture_demo.dart';
+import './src/demos/first_demo.dart';
+import './src/demos/futher_demo.dart';
+import './src/refresh/refreshIndicator_demo.dart';
+import './src/refresh/load_more_demo.dart';
+import './src/ui/TextDemo.dart';
+import './src/ui/beautiful_dialogs.dart';
+import './src/nativedemos/native_battery_demos.dart';
 
-class FavoriteWidget extends StatefulWidget {
-  @override
-  _FavoriteWidgetState createState() => new _FavoriteWidgetState();
-}
-
-class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
-  int _favoriteCount = 41;
-
-  void _toggleFavorite() {
-    setState(() {
-      // If the lake is currently favorited, unfavorite it.
-      if (_isFavorited) {
-        _favoriteCount -= 1;
-        _isFavorited = false;
-        // Otherwise, favorite it.
-      } else {
-        _favoriteCount += 1;
-        _isFavorited = true;
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        new Container(
-          padding: new EdgeInsets.all(0.0),
-          child: new IconButton(
-            icon: (_isFavorited
-                ? new Icon(Icons.star)
-                : new Icon(Icons.star_border)),
-            color: Colors.red[500],
-            onPressed: _toggleFavorite,
-          ),
-        ),
-        new SizedBox(
-          width: 18.0,
-          child: new Container(
-            child: new Text('$_favoriteCount'),
-          ),
-        ),
-      ],
-    );
-  }
-}
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = new Container(
-      padding: const EdgeInsets.all(32.0),
-      child: new Row(
-        children: [
-          new Expanded(
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                new Container(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: new Text(
-                    'Oeschinen Lake Campground22222',
-                    style: new TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                new Text(
-                  'Kandersteg, Switzerland4444444444',
-                  style: new TextStyle(
-                    color: Colors.grey[500],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          new FavoriteWidget(),
-        ],
-      ),
-    );
-
-    Column buildButtonColumn(IconData icon, String label) {
-      Color color = Theme.of(context).primaryColor;
-
-      return new Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          new Icon(icon, color: color),
-          new Container(
-            margin: const EdgeInsets.only(top: 8.0),
-            child: new Text(
-              label,
-              style: new TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w400,
-                color: color,
-              ),
-            ),
-          ),
-        ],
-      );
-    }
-
-    Widget buttonSection = new Container(
-      child: new Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          buildButtonColumn(Icons.call, 'CALL'),
-          buildButtonColumn(Icons.near_me, 'ROUTE'),
-          buildButtonColumn(Icons.share, 'SHARE'),
-        ],
-      ),
-    );
-
-    Widget textSection = new Container(
-      padding: const EdgeInsets.all(32.0),
-      child: new Text(
-        '''
-Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities enjoyed here include rowing, and riding the summer toboggan run.
-        ''',
-        softWrap: true,
-      ),
-    );
     return new MaterialApp(
       title: 'Flutter Demo',
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Top Lakes'),
-        ),
-        body: new ListView(
-          children: [
-            new Image.asset(
-              'assets/lake.jpg',
-              height: 240.0,
-              fit: BoxFit.cover,
+      theme: new ThemeData(
+        primaryColor: Colors.lightBlue[800],
+        accentColor: Colors.cyan[600],
+        primarySwatch: Colors.blue,
+      ),
+      home: new BottomTabBarPage(),// home相当于 /
+      routes: <String, WidgetBuilder> {
+        //静态路由，不能传参数
+        '/demos/demo1': (_) =>RandomWords(),
+        '/demos/demo2': (_) =>new FutherDemo(),
+        '/router/home': (_) => new RouterHomePage(),
+        '/router/second': (_) => new SecondPage(),
+        '/router/gesture': (_) => new GestureDemo(),
+        '/ui/textstyle': (_) => new TextStylePage(),
+        '/refresh/pullrefresh': (_) => new RefreshIndicatorDemo(),
+        '/refresh/loadmore': (_) => new LoadMorePage(),
+        '/refresh/beautifulldialog': (_) => new CupertinoDialogDemo(),
+        '/platform/battery': (_) => new PlatformChannel(),
+      },
+    );
+  }
+}
+
+class BottomTabBarPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new BottomTabBarState();
+  }
+}
+
+class BottomTabBarState extends State<BottomTabBarPage> {
+  int _currentIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Stack(
+        children: <Widget>[
+          /// Offstage 这个widget 在offstage条件为假的时候，不会显示，不会响应事件，不会占用任何的父widget的空间
+          new Offstage(
+            // offstage参数是一个bool类型，表示是否要显示这个widget
+            offstage: _currentIndex != 0,
+            child: new TickerMode(
+              enabled: _currentIndex == 0,
+              child: new ListViewPage(),
             ),
-            titleSection,
-            buttonSection,
-            textSection,
-          ],
-        ),
+          ),
+          new Offstage(
+            offstage: _currentIndex != 1,
+            child: new TickerMode(
+              enabled: _currentIndex == 1,
+                child: new NetWorkPage()
+            ),
+          ),
+          new Offstage(
+            offstage: _currentIndex != 2,
+            child: new TickerMode(
+              enabled: _currentIndex == 2,
+                child: new NativeFrame(),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: new BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.home), title: new Text('common')),
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.crop_square), title: new Text('network')),
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.ac_unit), title: new Text('tools')),
+        ],
+        // 可以改变这个来设置初始的时候显示哪个tab
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          // 这里点击tab上的item后，会执行，setState来刷新选中状态
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
