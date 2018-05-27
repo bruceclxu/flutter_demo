@@ -39,7 +39,7 @@ class ListViewPageState extends State<NetWorkPage> {
           children: <Widget>[
             new RaisedButton(
               onPressed: _getIPAddress,
-              child: new Text('请求国家列表'),
+              child:new Text('请求国家列表接口')// new CustomScrollView(), //   new Text('请求国家列表'),
             ),
             new Text('$_ipAddress.'),
             spacer,
@@ -52,7 +52,7 @@ class ListViewPageState extends State<NetWorkPage> {
   printResponseBody(response) {
     Map data= jsonDecode(response.body);
     setState(() {
-      _ipAddress = "json 解析后数据： \n\n 返回码code:${data["code"]} \n 返回message:${data["message"]}  \n 返回data :${data["data"]}";
+      _ipAddress = "json 解析后数据： \n\n 返回码code:${data["code"]} \n 返回message:${data["message"]}  \n ";
     });
     print("响应状态： ${response.statusCode}");
     print("响应正文： ${response.body}");

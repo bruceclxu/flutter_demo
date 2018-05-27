@@ -17,6 +17,8 @@ import './src/ui/TextDemo.dart';
 import './src/ui/beautiful_dialogs.dart';
 import './src/nativedemos/native_battery_demos.dart';
 import './src/lifecycles/lifecycle.dart';
+import './src/ui/progress.dart';
+import './src/anim/animition_test.dart';
 
 void main() => runApp(new MyApp());
 
@@ -44,6 +46,9 @@ class MyApp extends StatelessWidget {
         '/refresh/beautifulldialog': (_) => new CupertinoDialogDemo(),
         '/platform/battery': (_) => new PlatformChannel(),
         '/lifecycle/lifcycle': (_) => new LifecycleWatcher(),
+        '/ui/progress': (_) => new ProgressApp(),
+        '/anim/animfade': (_) => new FadeAppTest(),
+
 
     },
     );

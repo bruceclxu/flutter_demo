@@ -20,6 +20,7 @@ class ListViewPageState extends State<ListViewPage> {
     list.add('Cupertino (iOS-style widgets)');
     list.add('Layout');
     list.add('Text');
+    list.add('Progress');
     list.add('Assets, Images, and Icons');
     list.add('Input');
     list.add('Animation and Motion');
@@ -56,8 +57,12 @@ class ListViewPageState extends State<ListViewPage> {
           }else if (index == 2) {
             Navigator.pushNamed(context,'/refresh/beautifulldialog');
           }else if (index == 3) {
-          }else if (index == 6) {
+          }else if (index == 7) {
             Navigator.pushNamed(context, '/ui/textstyle');
+          }else if (index == 8) {
+            Navigator.pushNamed(context, '/ui/progress');
+          }else if (index == 9) {
+
           }
           else {
           }
