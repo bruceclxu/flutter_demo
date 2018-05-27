@@ -13,12 +13,13 @@ import './src/demos/first_demo.dart';
 import './src/demos/futher_demo.dart';
 import './src/refresh/refreshIndicator_demo.dart';
 import './src/refresh/load_more_demo.dart';
-import './src/ui/TextDemo.dart';
+import './src/ui/text_demo.dart';
 import './src/ui/beautiful_dialogs.dart';
 import './src/nativedemos/native_battery_demos.dart';
 import './src/lifecycles/lifecycle.dart';
 import './src/ui/progress.dart';
 import './src/anim/animition_test.dart';
+import './src/ui/paint_test.dart';
 
 void main() => runApp(new MyApp());
 
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
         '/lifecycle/lifcycle': (_) => new LifecycleWatcher(),
         '/ui/progress': (_) => new ProgressApp(),
         '/anim/animfade': (_) => new FadeAppTest(),
-
+        '/ui/paint': (_) => new PaintApp(),
 
     },
     );

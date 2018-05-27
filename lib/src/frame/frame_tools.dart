@@ -18,7 +18,7 @@ class ListViewPageState extends State<NativeFrame> {
     list.add('生命周期');
     list.add('动画');
     list.add('调用android native方法');
-    list.add('调用android native方法');
+    list.add('paint');
     list.add('待更新');
   }
 
@@ -56,6 +56,8 @@ class ListViewPageState extends State<NativeFrame> {
           Navigator.pushNamed(context, '/anim/animfade');
         }else if(index == 6){
           Navigator.pushNamed(context, '/platform/battery');
+        }else if(index == 7){
+          Navigator.pushNamed(context, '/ui/paint');
         }
         else {
 
