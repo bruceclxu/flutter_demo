@@ -41,6 +41,7 @@ class ListViewPageState extends State<NetWorkPage> {
               onPressed: _getIPAddress,
               child:new Text('请求国家列表接口')// new CustomScrollView(), //   new Text('请求国家列表'),
             ),
+
             new Text('$_ipAddress.'),
             spacer,
           ],

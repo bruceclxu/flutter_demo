@@ -13,9 +13,18 @@ class _PlatformChannelState extends State<PlatformChannel> {
   const MethodChannel('samples.flutter.io/battery');
   static const EventChannel eventChannel =
   const EventChannel('samples.flutter.io/charging');
-
+  static const MethodChannel startneactivity =
+  const MethodChannel('samples.flutter.io/newactivity');
   String _batteryLevel = 'Battery level: unknown.';
   String _chargingStatus = 'Battery status: unknown.';
+
+
+  _startNewActivity(){
+    methodChannel.invokeMethod('startActivity');
+    setState(() {
+
+    });
+  }
 
   Future<Null> _getBatteryLevel() async {
     String batteryLevel;
@@ -68,9 +77,36 @@ class _PlatformChannelState extends State<PlatformChannel> {
               ),
             ],
           ),
+        new GestureDetector(
+            onTap: () {
+              print("here");
+              _startNewActivity();
+            },
+            child: new Container(
+              height: 50.0,
+              color: Colors.white,
+              child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  new Expanded(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        new Text("打开native Activity页面")
+                      ],
+                    ),
+                  ),
+                  new Divider(
+                    height: 0.5,
+                  )
+                ],
+              ),
+            )),
           new Text(_chargingStatus),
         ],
       ),
     );
   }
+
+
 }

@@ -15,6 +15,7 @@ import android.os.Build.VERSION_CODES
 import android.os.Build.VERSION
 
 class MainActivity(): FlutterActivity() {
+    private val NEW_ACTIVITY = "samples.flutter.io/newactivity"
   private val BATTERY_CHANNEL = "samples.flutter.io/battery"
   private val CHARGING_CHANNEL = "samples.flutter.io/charging"
 
@@ -50,12 +51,15 @@ class MainActivity(): FlutterActivity() {
                   } else {
                     result.error("UNAVAILABLE", "Battery level not available.", null)
                   }
-                } else {
+                } else if (call.method == "startActivity") {
+                    startActivity()
+                }else {
                   result.notImplemented()
                 }
               }
             }
     )
+
   }
 
   private fun createChargingStateChangeReceiver(events: EventSink): BroadcastReceiver {
@@ -83,4 +87,8 @@ class MainActivity(): FlutterActivity() {
     }
   }
 
+  private fun startActivity(){
+      var intent =Intent(this@MainActivity,TestActivity::class.java)
+      startActivity(intent)
+  }
 }

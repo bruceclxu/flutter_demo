@@ -14,20 +14,15 @@ import io.flutter.plugin.common.EventChannel
 import android.os.BatteryManager
 import android.os.Build.VERSION_CODES
 import android.os.Build.VERSION
-import android.view.View
 import android.widget.TextView
 
-class SplashActivity(): Activity() {
+class TestActivity(): Activity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
     var tv:TextView= TextView(baseContext)
-    tv.setText("click go to flutterpage")
-    tv.setPadding(20,20,20,20)
-    tv.setOnClickListener(View.OnClickListener {
-      startActivity(Intent(this@SplashActivity,MainActivity::class.java))
-    })
+    tv.setText("test")
     setContentView(tv)
   }
 
