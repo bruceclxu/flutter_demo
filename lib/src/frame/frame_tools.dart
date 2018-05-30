@@ -19,6 +19,7 @@ class ListViewPageState extends State<NativeFrame> {
     list.add('动画');
     list.add('调用android native方法');
     list.add('paint');
+    list.add('进入登录demo');
     list.add('待更新');
   }
 
@@ -58,6 +59,8 @@ class ListViewPageState extends State<NativeFrame> {
           Navigator.pushNamed(context, '/platform/battery');
         }else if(index == 7){
           Navigator.pushNamed(context, '/ui/paint');
+        }else if(index == 8){
+          Navigator.pushNamed(context, '/flutterlogin/login');
         }
         else {
 
@@ -86,7 +89,6 @@ class ListViewPageState extends State<NativeFrame> {
           ],
         ),
       ));
-
   }
 
 }

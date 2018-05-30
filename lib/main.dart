@@ -20,6 +20,7 @@ import './src/lifecycles/lifecycle.dart';
 import './src/ui/progress.dart';
 import './src/anim/animition_test.dart';
 import './src/ui/paint_test.dart';
+import './src/flutterLogin/login_view.dart';
 
 void main() => runApp(new MyApp());
 
@@ -29,8 +30,8 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
+        primaryColor: Colors.purple[300],
+        accentColor: Colors.blue,
         primarySwatch: Colors.blue,
       ),
       home: new BottomTabBarPage(),// home相当于 /
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         '/ui/progress': (_) => new ProgressApp(),
         '/anim/animfade': (_) => new FadeAppTest(),
         '/ui/paint': (_) => new PaintApp(),
-
+        '/flutterlogin/login': (_) => new LoginDemo(),
     },
     );
   }

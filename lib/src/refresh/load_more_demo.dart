@@ -7,8 +7,8 @@ class LoadMorePage extends StatefulWidget {
 }
 
 class LoadMoreState extends State<LoadMorePage> {
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-      new GlobalKey<RefreshIndicatorState>();
+//  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+//      new GlobalKey<RefreshIndicatorState>();
 
   final TrackingScrollController _scrollController =
       new TrackingScrollController();
