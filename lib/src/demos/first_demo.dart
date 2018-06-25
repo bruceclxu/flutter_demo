@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-
 class RandomWords extends StatefulWidget {
   @override
   createState() => new RandomWordsState();
@@ -11,9 +10,7 @@ class RandomWords extends StatefulWidget {
 
 class RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
-
   final _saved = new Set<WordPair>();
-
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
   @override
@@ -34,7 +31,6 @@ class RandomWordsState extends State<RandomWords> {
       padding: const EdgeInsets.all(16.0),
       itemBuilder: (context, i) {
         if (i.isOdd) return new Divider();
-
         final index = i ~/ 2;
         if (index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10));

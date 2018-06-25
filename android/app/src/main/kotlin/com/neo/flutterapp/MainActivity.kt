@@ -15,7 +15,8 @@ import android.os.Build.VERSION_CODES
 import android.os.Build.VERSION
 
 class MainActivity(): FlutterActivity() {
-    private val NEW_ACTIVITY = "samples.flutter.io/newactivity"
+
+  private val NEW_ACTIVITY = "samples.flutter.io/newactivity"
   private val BATTERY_CHANNEL = "samples.flutter.io/battery"
   private val CHARGING_CHANNEL = "samples.flutter.io/charging"
 

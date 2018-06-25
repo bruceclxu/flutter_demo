@@ -30,7 +30,7 @@ class SecondState extends State<SecondPage> {
               color: Color.fromARGB(255, 255, 0, 0),
               child: new FlatButton(
                 onPressed: () {
-                  Navigator.of(context).pop('这个刚才打开的页面返回的数据');
+                  Navigator.of(context).pop('这个一整句是刚才打开的页面返回的数据');
                 },
                 child: new Text('点击 pop 页面并返回数据给上个页面'),
               ),

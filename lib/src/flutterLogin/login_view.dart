@@ -13,6 +13,15 @@ class LoginDemo extends StatefulWidget {
 }
 
 class LoginState extends State<LoginDemo>  {
+
+  @override
+  void initState() {
+    phone_num = "";
+    v_code = "";
+    isread = false;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget logoSection = new Container(
@@ -20,7 +29,7 @@ class LoginState extends State<LoginDemo>  {
       child:  new Image.asset(
         'assets/logo.png',
         width: 40.0,
-        height: 180.0,
+        height: 120.0,
         fit: BoxFit.contain,
       ),
     );
@@ -28,6 +37,7 @@ class LoginState extends State<LoginDemo>  {
     Widget input_phonenum = new Container(
       margin: const EdgeInsets.only(left:20.0,top: 20.0,right: 20.0,bottom: 10.0),
       child: new TextField(
+
         keyboardType:TextInputType.phone,
         style: new TextStyle(color: Colors.black),
         decoration: new InputDecoration(
@@ -56,10 +66,33 @@ class LoginState extends State<LoginDemo>  {
       ),
     );
 
+    void showTextDialog<T>({BuildContext context,String text}) {
+      showDialog<T>(
+        context: context,
+        child: new CupertinoAlertDialog(
+          title:  Text(text),
+          actions: <Widget>[
+            new CupertinoDialogAction(
+              child: const Text('关闭'),
+              isDestructiveAction: true,
+              onPressed: () {
+                Navigator.pop(context, 'Discard');
+              },
+            ),
+          ],
+        ),
+      ).then<void>((T value) {
+        if (value != null) {
+
+        }
+      });
+    }
     VoidCallback pressCallback() {
-      print('SubmitBtnState');
+      print("pressCallback = " + v_code);
+
       if(v_code.isNotEmpty&&v_code.length==6&&phone_num.isNotEmpty&&phone_num.length==11&&isread){
         return () {
+          showTextDialog(context: context,text:"提交服务器");
         };
       }else{
         return null;
@@ -128,5 +161,8 @@ class LoginState extends State<LoginDemo>  {
           ],
       ),
     );
+
   }
+
+
 }

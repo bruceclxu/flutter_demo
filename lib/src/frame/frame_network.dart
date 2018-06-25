@@ -14,17 +14,17 @@ class ListViewPageState extends State<NetWorkPage> {
     /*接口url地址，包含了请求地址http://op.juhe.cn/onebox/weather/query和两个参数cityname、AppKey*/
     var url = 'http://wallet.liaoyantech.cn/api/v1/wallet/';
     var httpClient = new http.Client();
-    Map<String, String> headers = {
-      'os_type': "0",
-      'Accept-Language': "en_us",
-      'mw-token': ""
-    };
-
+      Map<String, String> headers = {
+        'os_type': "0",
+        'Accept-Language': "en_us",
+        'mw-token': ""
+      };
       httpClient.get('${url}/country/listCountries',headers:headers).then((response) {
         printResponseBody(response);
         //优点 可以连续请求,请求全部完成后进行close
         return httpClient.get('${url}/country/listCountries');
-      }).then(printResponseBody)
+      })
+      .then(printResponseBody)
       .whenComplete(httpClient.close);
   }
 
